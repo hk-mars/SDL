@@ -131,7 +131,7 @@ IOS_AddMFIJoystickDevice(SDL_JoystickDeviceItem *device, GCController *controlle
         GCExtendedGamepad *gamepad = controller.extendedGamepad;
         BOOL is_xbox = [controller.vendorName containsString: @"Xbox"];
         BOOL is_ps4 = [controller.vendorName containsString: @"DUALSHOCK"];
-        BOOL is_MFi = (!is_xbox && !is_ps4);
+        //BOOL is_MFi = (!is_xbox && !is_ps4);
         int nbuttons = 0;
 
         /* These buttons are part of the original MFi spec */
