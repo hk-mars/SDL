@@ -11,11 +11,23 @@
 #include <math.h>
 #include <time.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "cJSON.h"
+
+char *create_monitor(void);
+int supports_full_hd(const char * const monitor);
 
 int
 mona_init(void)
 {
     printf("[mona] %s \n", __FUNCTION__);
+    
+    printf("Version: %s\n", cJSON_Version());
+    char *string = create_monitor();
+    
+    supports_full_hd(string);
     
     return 0;
 }
