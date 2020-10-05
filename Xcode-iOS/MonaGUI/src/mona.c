@@ -25,9 +25,6 @@ mona_init(void)
     printf("[mona] %s \n", __FUNCTION__);
     
     printf("Version: %s\n", cJSON_Version());
-    char *string = create_monitor();
-    
-    supports_full_hd(string);
     
     return 0;
 }
