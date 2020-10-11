@@ -25,7 +25,7 @@
 #include <string.h>
 #include "cJSON.h"
 
-#define CJSON_TEST_ENABLE 1
+#define CJSON_TEST_ENABLE 0
 
 /* Used by some code below as an example datatype. */
 struct record
@@ -390,7 +390,7 @@ end:
     return status;
 }
 
-static const char *layout_a = "{\n\
+static const char *json_a = "{\n\
 \t\"name\":\t\"Awesome 4K\",\n\
 \t\"resolutions\":\t[{\n\
 \t\t\t\"width\":\t1280,\n\
@@ -402,6 +402,20 @@ static const char *layout_a = "{\n\
 \t\t\t\"width\":\t3840,\n\
 \t\t\t\"height\":\t2160\n\
 \t\t}]\n\
+}";
+
+static const char *layout_a = "{\n\
+\t\"view\": \"view_logo\",\n\
+\t\"type\": \"single\",\n\
+\t\"layer\": [\n\
+\t    {\n\
+\t    \t\"widget\": \"img_logo\",\n\
+\t    \t\"type\": \"image\",\n\
+\t    \t\"x\": 0,\n\
+\t    \t\"y\": 0,\n\
+\t    \t\"algin\": \"center\"\n\
+\t    }\n\
+\t]\n\
 }";
 
 
@@ -432,6 +446,11 @@ int parse_layout(char *layout)
         printf("Checking name \"%s\"\n", name->valuestring);
     }
     
+    name = cJSON_GetObjectItemCaseSensitive(obj, "view");
+    if (cJSON_IsString(name) && (name->valuestring != NULL))
+    {
+        printf("Checking name \"%s\"\n", name->valuestring);
+    }
     printf("[cjson] %s, done \n", __FUNCTION__);
     
 end:
@@ -450,8 +469,11 @@ int CJSON_CDECL main(void)
     char *string = create_monitor();
     supports_full_hd(string);
     
+    parse_layout(json_a);
+    
     parse_layout(layout_a);
     
     return 0;
 }
 #endif /* CJSON_TEST_ENABLE */
+

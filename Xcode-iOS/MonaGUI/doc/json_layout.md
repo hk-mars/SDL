@@ -45,3 +45,42 @@
 - visible
 
 
+
+## Demos
+
+[Json Online](https://jsononline.net/json-checker)
+
+### A Start Logo
+
+```json
+{
+  "view": "page_logo",
+  "type": "single",
+  "layer": [
+    {
+      "widget": "img_logo",
+      "type": "image",
+      "x": 0,
+      "y": 0,
+      "algin": "center"
+    }
+  ]
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

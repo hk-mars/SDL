@@ -14,6 +14,7 @@
 		49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */; };
 		49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D7252AC46500314FD7 /* cJSON.c */; };
 		49D2D7DC252ACE4200314FD7 /* cJSON_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DB252ACE4200314FD7 /* cJSON_test.c */; };
+		49D2D7DF25332B3B00314FD7 /* m_json_layout.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* m_json_layout.c */; };
 		F3F7590022AC5EC7001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590122AC5F00001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590222AC5F3D001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
@@ -270,6 +271,8 @@
 		49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON_Utils.c; sourceTree = "<group>"; };
 		49D2D7D7252AC46500314FD7 /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		49D2D7DB252ACE4200314FD7 /* cJSON_test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON_test.c; sourceTree = "<group>"; };
+		49D2D7DD25332B3B00314FD7 /* m_json_layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_json_layout.h; sourceTree = "<group>"; };
+		49D2D7DE25332B3B00314FD7 /* m_json_layout.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_json_layout.c; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F758FF22AC5EC7001D97F2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		FA30DE961BBF59D9009C397F /* Happy-TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy-TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,6 +547,8 @@
 				49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */,
 				49D2D7D4252AC45300314FD7 /* cJSON.h */,
 				49D2D7CC252AC43B00314FD7 /* cJSON_Utils.h */,
+				49D2D7DD25332B3B00314FD7 /* m_json_layout.h */,
+				49D2D7DE25332B3B00314FD7 /* m_json_layout.c */,
 				49D2D7C22529AD5500314FD7 /* mona.h */,
 				49D2D7BE2529A85D00314FD7 /* mona.c */,
 				FD77A0060E26BC0500F39101 /* common.c */,
@@ -937,6 +942,7 @@
 				49D2D7BF2529A85D00314FD7 /* mona.c in Sources */,
 				FD77A0160E26BC0500F39101 /* rectangles.c in Sources */,
 				49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */,
+				49D2D7DF25332B3B00314FD7 /* m_json_layout.c in Sources */,
 				49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

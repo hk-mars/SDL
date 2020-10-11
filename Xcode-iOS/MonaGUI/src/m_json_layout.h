@@ -20,30 +20,17 @@
   THE SOFTWARE.
 */
 
-#include "mona.h"
-#include "SDL.h"
-#include "SDL_opengles.h"
-#include "common.h"
-#include <math.h>
-#include <time.h>
+#ifndef m_json_layout_h
+#define m_json_layout_h
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "cJSON.h"
-#include "m_json_layout.h"
 
-char *create_monitor(void);
-int supports_full_hd(const char * const monitor);
+#define JSON_LAYOUT_DEBUG  1
 
-int
-mona_init(void)
-{
-    printf("[mona] %s \n", __FUNCTION__);
-    
-    printf("Version: %s\n", cJSON_Version());
-    
-    m_json_layout_test();
-    
-    return 0;
-}
+int m_json_layout_parse(char *layout);
+
+#if JSON_LAYOUT_DEBUG
+int m_json_layout_test(void);
+#endif
+
+#endif /* m_json_layout_h */
