@@ -20,7 +20,7 @@
   THE SOFTWARE.
 */
 
-#include "m_json_layout.h"
+#include "m_layout_json.h"
 #include "cJSON.h"
 
 #if JSON_LAYOUT_DEBUG
@@ -29,36 +29,43 @@
 #define JL_DEBUG(...)
 #endif
 
+static void
+show_obj(cJSON *o, const char *name)
+{
+    if (!o || !name) return;
+    
+    if (cJSON_IsString(o) && (o->valuestring != NULL))
+    {
+        JL_DEBUG("[layout] %s \"%s\"\n", name, o->valuestring);
+    }
+    else if (cJSON_IsNumber(o))
+    {
+        JL_DEBUG("[layout] %s \"%d\"\n", name, o->valueint);
+    }
+}
+
+static cJSON*
+parse_obj(cJSON *o, const char *name)
+{
+    o = cJSON_GetObjectItemCaseSensitive(o, name);
+    show_obj(o, name);
+    
+    return o;
+}
+
 static int
 parse_layer_obj(cJSON *obj)
 {
-    cJSON *item;
+    cJSON *o;
+    const char *s = NULL;
     
     JL_DEBUG("[layout] %s start \n", __FUNCTION__);
 
-    item = cJSON_GetObjectItemCaseSensitive(obj, "widget");
-    if (cJSON_IsString(item) && (item->valuestring != NULL))
-    {
-        JL_DEBUG("[layout] widget \"%s\"\n", item->valuestring);
-    }
-    
-    item = cJSON_GetObjectItemCaseSensitive(obj, "type");
-    if (cJSON_IsString(item) && (item->valuestring != NULL))
-    {
-        JL_DEBUG("[layout] type \"%s\"\n", item->valuestring);
-    }
-
-    item = cJSON_GetObjectItemCaseSensitive(obj, "x");
-    if (cJSON_IsNumber(item))
-    {
-        JL_DEBUG("[layout] x \"%d\"\n", item->valueint);
-    }
-    
-    item = cJSON_GetObjectItemCaseSensitive(obj, "y");
-    if (cJSON_IsNumber(item))
-    {
-        JL_DEBUG("[layout] y \"%d\"\n", item->valueint);
-    }
+    o = parse_obj(obj, "widget");
+    o = parse_obj(obj, "image");
+    o = parse_obj(obj, "x");
+    o = parse_obj(obj, "y");
+    o = parse_obj(obj, "align");
     
     JL_DEBUG("[layout] %s done \n", __FUNCTION__);
     return 1;
@@ -81,11 +88,12 @@ parse_layer(cJSON *array)
     return 1;
 }
 
-int
+json_layout_ret_t
 m_json_layout_parse(char *layout)
 {
-    int status;
-    cJSON *item;
+    json_layout_ret_t rt = JS_OK;
+    cJSON *o;
+    
     
     if (!layout) return 0;
     
@@ -99,32 +107,21 @@ m_json_layout_parse(char *layout)
       {
           fprintf(stderr, "error before: %s\n", error_ptr);
       }
-      status = 0;
+      rt = JL_ERR;
       goto end;
     }
 
-    item = cJSON_GetObjectItemCaseSensitive(obj, "view");
-    if (cJSON_IsString(item) && (item->valuestring != NULL))
-    {
-        JL_DEBUG("[layout] view \"%s\"\n", item->valuestring);
-    }
-    
-    item = cJSON_GetObjectItemCaseSensitive(obj, "type");
-    if (cJSON_IsString(item) && (item->valuestring != NULL))
-    {
-        JL_DEBUG("[layout] type \"%s\"\n", item->valuestring);
-    }
-
-    item = cJSON_GetObjectItemCaseSensitive(obj, "layer");
-    if (cJSON_IsArray(item))
+    o = parse_obj(obj, "view");
+    o = parse_obj(obj, "layer");
+    if (o)
     {
         JL_DEBUG("[layout] layer \n");
-        
-        parse_layer(item);
+        parse_layer(o);
     }
+
     JL_DEBUG("[layout] %s, done \n", __FUNCTION__);
 end:
-    return status;
+    return rt;
 }
 
 
@@ -132,14 +129,16 @@ end:
 
 static const char *layout_a = "{\n\
 \t\"view\": \"view_logo\",\n\
-\t\"type\": \"single\",\n\
 \t\"layer\": [\n\
 \t    {\n\
 \t    \t\"widget\": \"img_logo\",\n\
 \t    \t\"type\": \"image\",\n\
-\t    \t\"x\": 0,\n\
-\t    \t\"y\": 0,\n\
-\t    \t\"algin\": \"center\"\n\
+\t    \t\"image\": \"logo\",\n\
+\t    \t\"x\": 2,\n\
+\t    \t\"y\": 2,\n\
+\t    \t\"algin\": \"center\",\n\
+\t    \t\"bg\": \"gray\",\n\
+\t    \t\"motion_effect\": \"slide\"\n\
 \t    }\n\
 \t]\n\
 }";

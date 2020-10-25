@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cJSON.h"
-#include "m_json_layout.h"
+#include "m_layout_json.h"
 
 char *create_monitor(void);
 int supports_full_hd(const char * const monitor);

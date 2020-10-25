@@ -20,17 +20,26 @@
   THE SOFTWARE.
 */
 
-#ifndef m_json_layout_h
-#define m_json_layout_h
+#ifndef m_layout_json_h
+#define m_layout_json_h
 
 #include <stdio.h>
 
 #define JSON_LAYOUT_DEBUG  1
 
-int m_json_layout_parse(char *layout);
+typedef enum
+{
+    JS_OK = 0,
+    JL_ERR = 1,
+    JL_NULL = 2,
+    JL_NO_MEM = 3,
+} json_layout_ret_t;
+
+
+json_layout_ret_t m_json_layout_parse(char *layout);
 
 #if JSON_LAYOUT_DEBUG
 int m_json_layout_test(void);
 #endif
 
-#endif /* m_json_layout_h */
+#endif /* m_layout_json_h */

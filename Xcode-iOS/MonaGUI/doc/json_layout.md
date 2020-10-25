@@ -3,8 +3,16 @@
 
 ## Basic Elements
 
+- page
 - view
 - widget
+
+## Page
+
+- width, int, string
+- height, int, string
+- bg, string
+- view
 
 ## View
 
@@ -40,11 +48,18 @@
 - y algin: string
 - width, int, string
 - height, int, string
-- content
-- enable
-- visible
+- content, string, optional
+- enable, bool
+- visible, bool
+- background, string, color or image or buffer
+- foreground, string, color or image or buffer
+- effect
 
+### Elements of Image Widget
 
+- fg_effect
+- motion_effect
+_
 
 ## Demos
 
@@ -54,17 +69,23 @@
 
 ```json
 {
-  "view": "page_logo",
-  "type": "single",
-  "layer": [
-    {
-      "widget": "img_logo",
-      "type": "image",
-      "x": 0,
-      "y": 0,
-      "algin": "center"
-    }
-  ]
+	"page": "page_logo",
+	"view": "view_logo",
+	"layer": [
+		{
+      		"widget": "img_logo",
+      		"type": "image",
+      		"image": "logo",
+      		"x": 2,
+      		"y": 2,
+      		"algin": "center",
+      		"bg": "gray",
+      		"fg_effect": "alpha_blur",
+      		"motion_effect": "slide",
+      		"enable": false,
+      		"visible": false,
+    	},
+  	]
 }
 ```
 
