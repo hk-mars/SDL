@@ -91,9 +91,8 @@ parse_layer(cJSON *array)
 json_layout_ret_t
 m_json_layout_parse(char *layout)
 {
-    json_layout_ret_t rt = JS_OK;
+    json_layout_ret_t rt = JL_OK;
     cJSON *o;
-    
     
     if (!layout) return 0;
     

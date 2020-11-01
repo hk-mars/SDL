@@ -59,7 +59,18 @@
 
 - fg_effect
 - motion_effect
-_
+
+
+## layout object
+
+A layout object includes some widgets.
+
+## layout layer
+
+This means layout objects can be positioned on different layer.
+
+We can choose which layer to show or hide for better drawing performance and UX.
+
 
 ## Demos
 
