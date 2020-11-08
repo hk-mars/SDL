@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include "m_layout_obj.h"
+#include "m_layout_utils.h"
 
 #define JSON_LAYOUT_DEBUG  1
 
@@ -39,13 +40,16 @@ typedef enum
 typedef struct
 {
     char *json;
-    layout_obj_list_t layout_obj_lst;
+    
+    char *view_name;
+    
+    layout_obj_list_t lst;
     
     int layer_cnt;
     int cur_layer;
 } layout_json_t;
 
-json_layout_ret_t m_json_layout_parse(char *layout);
+json_layout_ret_t m_json_layout_parse(char *json);
 
 #if JSON_LAYOUT_DEBUG
 int m_json_layout_test(void);

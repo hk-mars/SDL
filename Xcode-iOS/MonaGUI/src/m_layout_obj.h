@@ -12,15 +12,16 @@
 
 #include "m_widget.h"
 
-typedef struct
+typedef struct widget_list
 {
     widget_t w;
-    widget_t *next;
+    struct widget_list *next;
 } widget_list_t;
+
 
 typedef struct
 {
-    widget_list_t *widget_lst;
+    widget_list_t widget_lst;
     int widget_cnt;
     
     int layer;

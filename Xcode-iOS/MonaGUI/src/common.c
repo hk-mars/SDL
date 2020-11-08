@@ -54,3 +54,24 @@ updateDeltaTime(void)
 
     return deltaTime;
 }
+
+
+void* mona_malloc(size_t size)
+{
+    if (size <= 0) return NULL;
+    
+    void *m = malloc(size);
+    if (!m) {
+        mlog_err("failed to malloc %ld bytes \n", size);
+        return NULL;
+    }
+    
+    memset(m, 0, size);
+    return m;
+}
+
+void mona_free(void *mem)
+{
+    if (mem) free(mem);
+}
+

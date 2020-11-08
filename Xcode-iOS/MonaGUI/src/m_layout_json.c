@@ -23,8 +23,11 @@
 #include "m_layout_json.h"
 #include "cJSON.h"
 
+#include "common.h"
+
 #if JSON_LAYOUT_DEBUG
-#define JL_DEBUG printf
+#define JL_DEBUG(FORMAT, ARGS...) \
+printf("[layout] "); printf(FORMAT, ##ARGS)
 #else
 #define JL_DEBUG(...)
 #endif
@@ -36,11 +39,15 @@ show_obj(cJSON *o, const char *name)
     
     if (cJSON_IsString(o) && (o->valuestring != NULL))
     {
-        JL_DEBUG("[layout] %s \"%s\"\n", name, o->valuestring);
+        JL_DEBUG("%s \"%s\"\n", name, o->valuestring);
     }
     else if (cJSON_IsNumber(o))
     {
-        JL_DEBUG("[layout] %s \"%d\"\n", name, o->valueint);
+        JL_DEBUG("%s \"%d\"\n", name, o->valueint);
+    }
+    else
+    {
+        JL_DEBUG("%s undefined type \n", name);
     }
 }
 
@@ -53,28 +60,77 @@ parse_obj(cJSON *o, const char *name)
     return o;
 }
 
-static int
-parse_layer_obj(cJSON *obj)
+static json_layout_ret_t
+parse_layer_obj(cJSON *obj, layout_obj_t *layout_obj)
 {
     cJSON *o;
     const char *s = NULL;
     
-    JL_DEBUG("[layout] %s start \n", __FUNCTION__);
+    JL_DEBUG("%s start \n", __FUNCTION__);
+    
+    layout_obj->layer = 0;
+    
+    widget_list_t *lst = &layout_obj->widget_lst;
+    
+    /* create a new widget
+     */
+    widget_list_t *node = lst->next;
+    while (node) {
+        lst = node;
+        node = node->next;
+    }
+    node = lst->next = mona_malloc(sizeof(widget_list_t));
+    if (!node) {
+        return JL_NO_MEM;
+    }
+    JL_DEBUG("a widget created \n");
+    widget_t *w = &node->w;
 
     o = parse_obj(obj, "widget");
-    o = parse_obj(obj, "image");
-    o = parse_obj(obj, "x");
-    o = parse_obj(obj, "y");
-    o = parse_obj(obj, "align");
+    if (o) w->name = o->valuestring;
     
-    JL_DEBUG("[layout] %s done \n", __FUNCTION__);
-    return 1;
+    o = parse_obj(obj, "image");
+    if (o) w->val_str = o->valuestring;
+    
+    o = parse_obj(obj, "x");
+    if (o) w->pos.x = o->valueint;
+    
+    o = parse_obj(obj, "y");
+    if (o) w->pos.y = o->valueint;
+    
+    o = parse_obj(obj, "align");
+    if (o)
+    {
+        w->align_str = o->valuestring;
+        w->align = layout_util_get_widget_align(w->align_str);
+    }
+    
+    JL_DEBUG("%s done \n", __FUNCTION__);
+    return JL_OK;
 }
 
-static int
-parse_layer(cJSON *array)
+static json_layout_ret_t
+parse_layer(cJSON *array, layout_json_t *layout)
 {
     cJSON *item;
+    layout_obj_list_t *lst = &layout->lst;
+    
+    /* create a new node
+     */
+    layout_obj_list_t *node = lst->next;
+    if (node) {
+        while (lst->next) {
+            node = lst;
+            lst = lst->next;
+        }
+    }
+    node = mona_malloc(sizeof(layout_obj_list_t));
+    if (!node) {
+        return JL_NO_MEM;
+    }
+    JL_DEBUG("a layout object created \n");
+    
+    layout_obj_t *layout_obj = &node->obj;
     
     int size = cJSON_GetArraySize(array);;
     for (int i = 0; i < size; i++)
@@ -82,23 +138,31 @@ parse_layer(cJSON *array)
         item =cJSON_GetArrayItem(array, i);
         if (!item) break;
         
-        parse_layer_obj(item);
+        json_layout_ret_t rt = parse_layer_obj(item, layout_obj);
+        if (rt != JL_OK) return rt;
     }
     
-    return 1;
+    return ;
 }
 
 json_layout_ret_t
-m_json_layout_parse(char *layout)
+m_json_layout_parse(char *json)
 {
     json_layout_ret_t rt = JL_OK;
     cJSON *o;
+    layout_json_t *layout;
     
-    if (!layout) return 0;
+    if (!json) return 0;
     
-    JL_DEBUG("[layout] %s:\n%s\n", __FUNCTION__, layout);
+    JL_DEBUG("%s:\n%s\n", __FUNCTION__, json);
     
-    cJSON *obj = cJSON_Parse(layout);
+    layout = (layout_json_t*)mona_malloc(sizeof(layout_json_t));
+    if (!layout)
+    {
+        return JL_NO_MEM;
+    }
+    
+    cJSON *obj = cJSON_Parse(json);
     if (!obj)
     {
       const char *error_ptr = cJSON_GetErrorPtr();
@@ -111,14 +175,24 @@ m_json_layout_parse(char *layout)
     }
 
     o = parse_obj(obj, "view");
+    if (o)
+    {
+        layout->view_name = o->string;
+    }
+    
     o = parse_obj(obj, "layer");
     if (o)
     {
         JL_DEBUG("[layout] layer \n");
-        parse_layer(o);
+        parse_layer(o, layout);
     }
+    /* layout */
+    /* view */
+    /* layout objects */
+    /* given layers for layout object */
+    
 
-    JL_DEBUG("[layout] %s, done \n", __FUNCTION__);
+    JL_DEBUG("%s, done \n", __FUNCTION__);
 end:
     return rt;
 }
@@ -135,7 +209,7 @@ static const char *layout_a = "{\n\
 \t    \t\"image\": \"logo\",\n\
 \t    \t\"x\": 2,\n\
 \t    \t\"y\": 2,\n\
-\t    \t\"algin\": \"center\",\n\
+\t    \t\"align\": \"center\",\n\
 \t    \t\"bg\": \"gray\",\n\
 \t    \t\"motion_effect\": \"slide\"\n\
 \t    }\n\

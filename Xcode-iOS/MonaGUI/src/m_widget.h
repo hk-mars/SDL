@@ -74,6 +74,7 @@ typedef struct
     
     widget_position_t pos;
     widget_align_t align;
+    char *align_str;
     int w;
     int h;
     
@@ -91,6 +92,9 @@ typedef struct
     widget_move_t move_x;
     widget_move_t move_y;
     widget_move_xy_t move_xy;
+    
+    char *val_str;
+    
 } widget_t;
 
 #endif /* m_widget_h */
