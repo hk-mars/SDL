@@ -49,7 +49,9 @@ typedef struct
     int cur_layer;
 } layout_json_t;
 
-json_layout_ret_t m_json_layout_parse(char *json);
+json_layout_ret_t m_json_layout_parse(const char  *json, layout_json_t *layout);
+
+layout_json_t* m_layout_json_create(void);
 
 #if JSON_LAYOUT_DEBUG
 int m_json_layout_test(void);

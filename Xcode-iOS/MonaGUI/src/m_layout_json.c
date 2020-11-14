@@ -146,21 +146,14 @@ parse_layer(cJSON *array, layout_json_t *layout)
 }
 
 json_layout_ret_t
-m_json_layout_parse(char *json)
+m_json_layout_parse(const char *json, layout_json_t *layout)
 {
     json_layout_ret_t rt = JL_OK;
     cJSON *o;
-    layout_json_t *layout;
     
-    if (!json) return 0;
+    if (!json || !layout) return JL_NULL;
     
     JL_DEBUG("%s:\n%s\n", __FUNCTION__, json);
-    
-    layout = (layout_json_t*)mona_malloc(sizeof(layout_json_t));
-    if (!layout)
-    {
-        return JL_NO_MEM;
-    }
     
     cJSON *obj = cJSON_Parse(json);
     if (!obj)
@@ -186,21 +179,27 @@ m_json_layout_parse(char *json)
         JL_DEBUG("[layout] layer \n");
         parse_layer(o, layout);
     }
-    /* layout */
-    /* view */
-    /* layout objects */
-    /* given layers for layout object */
-    
 
     JL_DEBUG("%s, done \n", __FUNCTION__);
 end:
     return rt;
 }
 
+layout_json_t*
+m_layout_json_create(void)
+{
+    layout_json_t *layout = mona_malloc(sizeof(layout_json_t));
+    if (!layout)
+    {
+        return NULL;
+    }
+    
+    return layout;
+}
 
 #if JSON_LAYOUT_DEBUG
 
-static const char *layout_a = "{\n\
+static const char *json_test = "{\n\
 \t\"view\": \"view_logo\",\n\
 \t\"layer\": [\n\
 \t    {\n\
@@ -219,11 +218,11 @@ static const char *layout_a = "{\n\
 int
 m_json_layout_test(void)
 {
-    int pass;
+    layout_json_t *layout = m_layout_json_create();
     
-    pass = m_json_layout_parse((char*)layout_a);
+    json_layout_ret_t rt = m_json_layout_parse(json_test, layout);
     
-    return pass;
+    return rt;
 }
 
 #endif /* JSON_LAYOUT_DEBUG */
