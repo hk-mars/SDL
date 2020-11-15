@@ -34,6 +34,13 @@
 #include "m_layout_json.h"
 #include "m_view.h"
 
+#define X "mona"
+#define LOG_X(FORMAT, ARGS...)  \
+{   \
+printf("[%s] ", X); printf(FORMAT, ##ARGS); \
+}
+
+
 char *create_monitor(void);
 int supports_full_hd(const char * const monitor);
 
@@ -57,9 +64,9 @@ static const char *json_x = "{\n\
 int
 mona_init(void)
 {
-    printf("[mona] %s \n", __FUNCTION__);
+    LOG_BEGIN("");
     
-    printf("Version: %s\n", cJSON_Version());
+    LOG_X("cJSON Version: %s\n", cJSON_Version());
     
     view_ret_t view_rt = m_view_init();
     if (view_rt != VIEW_OK)
@@ -79,6 +86,7 @@ mona_init(void)
         return -1;
     }
     
+    LOG_END("");
     
     return 0;
 }

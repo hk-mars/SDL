@@ -7,11 +7,17 @@
 
 #include "m_view.h"
 
+#define X "view"
+#define LOG_X(FORMAT, ARGS...)  \
+{   \
+printf("[%s] ", X); printf(FORMAT, ##ARGS); \
+}
+
 
 view_ret_t
 m_view_init(void)
 {
-    m_debug("[view] %s \n", __FUNCTION__);
+    LOG_X("%s \n", __FUNCTION__);
     
     return VIEW_OK;
 }
@@ -22,14 +28,14 @@ m_view_create(char *name)
     view_t *v = mona_malloc(sizeof(view_t));
     if (!v)
     {
-        mlog_err("failed to malloc mem for view \n");
+        LOG_ERR("failed to malloc mem for view \n");
         return NULL;
     }
     
     v->layout = m_layout_json_create();
     if (!v->layout)
     {
-        mlog_err("failed to malloc mem for layout \n");
+        LOG_ERR("failed to malloc mem for layout \n");
         mona_free(v);
         return NULL;
     }
@@ -39,12 +45,28 @@ m_view_create(char *name)
         name = "i_view";
     }
   
-    m_debug("name max len: %lu \n", sizeof(v->name));
+    LOG_X("name max len: %lu \n", sizeof(v->name));
     snprintf(v->name, sizeof(v->name), "%s", name);
     
     v->enable = true;
     v->visible = true;
     v->state = VIEW_STATE_INIT;
     
+    m_view_show(v);
+    
     return v;
+}
+
+void
+m_view_show(view_t *view)
+{
+    if (!view) return;
+    
+    LOG_BEGIN("");
+    
+    LOG_X("name: %s \n", view->name);
+    LOG_X("enable: %d \n", view->enable);
+    LOG_X("visible: %d \n", view->visible);
+    
+    LOG_END("");
 }

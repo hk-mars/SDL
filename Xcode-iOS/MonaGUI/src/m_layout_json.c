@@ -26,10 +26,13 @@
 #include "common.h"
 
 #if JSON_LAYOUT_DEBUG
-#define JL_DEBUG(FORMAT, ARGS...) \
-printf("[layout] "); printf(FORMAT, ##ARGS)
+#define X "layout"
+#define LOG_X(FORMAT, ARGS...)  \
+{   \
+printf("[%s] ", X); printf(FORMAT, ##ARGS); \
+}
 #else
-#define JL_DEBUG(...)
+#define LOG_X(...)
 #endif
 
 static void
@@ -39,15 +42,15 @@ show_obj(cJSON *o, const char *name)
     
     if (cJSON_IsString(o) && (o->valuestring != NULL))
     {
-        JL_DEBUG("%s \"%s\"\n", name, o->valuestring);
+        LOG_X("%s \"%s\"\n", name, o->valuestring);
     }
     else if (cJSON_IsNumber(o))
     {
-        JL_DEBUG("%s \"%d\"\n", name, o->valueint);
+        LOG_X("%s \"%d\"\n", name, o->valueint);
     }
     else
     {
-        JL_DEBUG("%s undefined type \n", name);
+        LOG_X("%s undefined type \n", name);
     }
 }
 
@@ -66,7 +69,7 @@ parse_layer_obj(cJSON *obj, layout_obj_t *layout_obj)
     cJSON *o;
     const char *s = NULL;
     
-    JL_DEBUG("%s start \n", __FUNCTION__);
+    LOG_X("%s start \n", __FUNCTION__);
     
     layout_obj->layer = 0;
     
@@ -83,7 +86,7 @@ parse_layer_obj(cJSON *obj, layout_obj_t *layout_obj)
     if (!node) {
         return JL_NO_MEM;
     }
-    JL_DEBUG("a widget created \n");
+    LOG_X("a widget created \n");
     widget_t *w = &node->w;
 
     o = parse_obj(obj, "widget");
@@ -105,7 +108,7 @@ parse_layer_obj(cJSON *obj, layout_obj_t *layout_obj)
         w->align = layout_util_get_widget_align(w->align_str);
     }
     
-    JL_DEBUG("%s done \n", __FUNCTION__);
+    LOG_X("%s done \n", __FUNCTION__);
     return JL_OK;
 }
 
@@ -128,7 +131,7 @@ parse_layer(cJSON *array, layout_json_t *layout)
     if (!node) {
         return JL_NO_MEM;
     }
-    JL_DEBUG("a layout object created \n");
+    LOG_X("a layout object created \n");
     
     layout_obj_t *layout_obj = &node->obj;
     
@@ -153,7 +156,7 @@ m_json_layout_parse(const char *json, layout_json_t *layout)
     
     if (!json || !layout) return JL_NULL;
     
-    JL_DEBUG("%s:\n%s\n", __FUNCTION__, json);
+    LOG_BEGIN("%s \n", json);
     
     cJSON *obj = cJSON_Parse(json);
     if (!obj)
@@ -176,11 +179,11 @@ m_json_layout_parse(const char *json, layout_json_t *layout)
     o = parse_obj(obj, "layer");
     if (o)
     {
-        JL_DEBUG("[layout] layer \n");
+        LOG_X("layer \n");
         parse_layer(o, layout);
     }
 
-    JL_DEBUG("%s, done \n", __FUNCTION__);
+    LOG_END("");
 end:
     return rt;
 }

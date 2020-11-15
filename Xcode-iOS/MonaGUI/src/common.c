@@ -62,7 +62,7 @@ void* mona_malloc(size_t size)
     
     void *m = malloc(size);
     if (!m) {
-        mlog_err("failed to malloc %ld bytes \n", size);
+        LOG_ERR("failed to malloc %ld bytes \n", size);
         return NULL;
     }
     
