@@ -31,13 +31,13 @@ printf(FORMAT, ##ARGS); \
 
 #define LOG_BEGIN(FORMAT, ARGS...)  \
 {   \
-printf("\n#### [%s] #### begin \n", __FUNCTION__);  \
+printf("\n[%s] [begin] \n\n", __FUNCTION__);  \
 printf(FORMAT, ##ARGS); \
 }
 
 #define LOG_END(FORMAT, ARGS...)  \
 {   \
-printf("\n#### [%s] #### end \n", __FUNCTION__);  \
+printf("\n[%s] [end] \n", __FUNCTION__);  \
 printf(FORMAT, ##ARGS); \
 }
 

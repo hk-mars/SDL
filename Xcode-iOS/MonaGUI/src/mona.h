@@ -24,7 +24,10 @@
 #ifndef mona_h
 #define mona_h
 
-#define MONA_VERSION "0.0.1"
+
+#define MONA_VER_MAJOR 1
+#define MONA_VER_MINOR 0
+#define MONA_VER_PATCH 0
 
 
 extern int mona_init(void);

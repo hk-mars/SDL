@@ -61,12 +61,22 @@ static const char *json_x = "{\n\
 \t]\n\
 }";
 
+
+char*
+mona_version(void)
+{
+    static char version[15];
+    snprintf(version, 15, "%i.%i.%i", MONA_VER_MAJOR, MONA_VER_MINOR, MONA_VER_PATCH);
+
+    return version;
+}
+
 int
 mona_init(void)
 {
-    LOG_BEGIN("");
+    LOG_X("mona gui framework %s \n", mona_version());
     
-    LOG_X("cJSON Version: %s\n", cJSON_Version());
+    LOG_X("cJSON %s\n", cJSON_Version());
     
     view_ret_t view_rt = m_view_init();
     if (view_rt != VIEW_OK)
@@ -85,8 +95,6 @@ mona_init(void)
     {
         return -1;
     }
-    
-    LOG_END("");
     
     return 0;
 }
