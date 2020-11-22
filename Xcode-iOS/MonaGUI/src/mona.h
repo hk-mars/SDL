@@ -29,7 +29,8 @@
 #define MONA_VER_MINOR 0
 #define MONA_VER_PATCH 0
 
+#include "m_error.h"
 
-extern int mona_init(void);
+extern mona_ret_t mona_init(void);
 
 #endif /* mona_h */

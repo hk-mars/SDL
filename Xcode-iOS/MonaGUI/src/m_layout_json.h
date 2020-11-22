@@ -24,6 +24,8 @@
 #define m_layout_json_h
 
 #include <stdio.h>
+
+#include "m_error.h"
 #include "m_layout_obj.h"
 #include "m_layout_utils.h"
 
@@ -31,10 +33,10 @@
 
 typedef enum
 {
-    JL_OK = 0,
-    JL_ERR = 1,
-    JL_NULL = 2,
-    JL_NO_MEM = 3,
+    JL_OK = MONA_BASE_LAYOUT,
+    JL_ERR,
+    JL_NULL,
+    JL_NO_MEM,
 } json_layout_ret_t;
 
 typedef struct

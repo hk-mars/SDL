@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 
+#include "m_error.h"
 #include "common.h"
 #include "m_layout_json.h"
 
@@ -17,7 +18,7 @@
 
 typedef enum
 {
-    VIEW_OK,
+    VIEW_OK = MONA_BASE_VIEW,
     VIEW_ERR,
     VIEW_NULL,
     VIEW_NO_MEM,
@@ -62,6 +63,9 @@ view_ret_t m_view_init(void);
 
 view_t* m_view_create(char *name);
 
-void m_view_show(view_t *view);
+void m_view_debug(view_t *view);
+
+bool m_view_layout_set_json(view_t *view, char *json);
+view_ret_t m_view_load(view_t *view);
 
 #endif /* m_view_h */

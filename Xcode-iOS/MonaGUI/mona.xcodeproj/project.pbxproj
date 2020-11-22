@@ -19,6 +19,7 @@
 		49D2D7DF25332B3B00314FD7 /* m_layout_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* m_layout_json.c */; };
 		49D2D7E225458E0A00314FD7 /* m_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* m_layout_obj.c */; };
 		49D2D7E5254EB75900314FD7 /* m_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* m_widget.c */; };
+		49FEAA172569176800B60EC1 /* m_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* m_error.c */; };
 		F3F7590022AC5EC7001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590122AC5F00001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590222AC5F3D001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
@@ -285,6 +286,9 @@
 		49D2D7E125458E0A00314FD7 /* m_layout_obj.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_layout_obj.c; sourceTree = "<group>"; };
 		49D2D7E3254EB75900314FD7 /* m_widget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_widget.h; sourceTree = "<group>"; };
 		49D2D7E4254EB75900314FD7 /* m_widget.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_widget.c; sourceTree = "<group>"; };
+		49FEAA152569176800B60EC1 /* m_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_error.h; sourceTree = "<group>"; };
+		49FEAA162569176800B60EC1 /* m_error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_error.c; sourceTree = "<group>"; };
+		49FEAA1F25691BF300B60EC1 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F758FF22AC5EC7001D97F2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		FA30DE961BBF59D9009C397F /* Happy-TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy-TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,6 +502,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				49FEAA1F25691BF300B60EC1 /* TestPlan.xctestplan */,
 				FA86C0361D9765BA009CB637 /* iOS Launch Screen.storyboard */,
 				FD1B48920E313154007AB34E /* SDL.xcodeproj */,
 				FD77A0040E26BC0500F39101 /* src */,
@@ -570,6 +575,8 @@
 				4946F529255FD4A80052FFB0 /* m_view.c */,
 				49D2D7E4254EB75900314FD7 /* m_widget.c */,
 				49D2D7C22529AD5500314FD7 /* mona.h */,
+				49FEAA152569176800B60EC1 /* m_error.h */,
+				49FEAA162569176800B60EC1 /* m_error.c */,
 				49D2D7BE2529A85D00314FD7 /* mona.c */,
 				FD77A0060E26BC0500F39101 /* common.c */,
 				FD77A0070E26BC0500F39101 /* common.h */,
@@ -966,6 +973,7 @@
 				4946F52A255FD4A80052FFB0 /* m_view.c in Sources */,
 				49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */,
 				49D2D7DF25332B3B00314FD7 /* m_layout_json.c in Sources */,
+				49FEAA172569176800B60EC1 /* m_error.c in Sources */,
 				49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */,
 				49D2D7E5254EB75900314FD7 /* m_widget.c in Sources */,
 			);

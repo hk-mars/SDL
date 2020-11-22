@@ -31,6 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cJSON.h"
+#include "m_error.h"
 #include "m_layout_json.h"
 #include "m_view.h"
 
@@ -71,30 +72,33 @@ mona_version(void)
     return version;
 }
 
-int
+mona_ret_t
 mona_init(void)
 {
     LOG_X("mona gui framework %s \n", mona_version());
     
     LOG_X("cJSON %s\n", cJSON_Version());
     
-    view_ret_t view_rt = m_view_init();
-    if (view_rt != VIEW_OK)
+    mona_ret_t rt = m_view_init();
+    if (rt != VIEW_OK)
     {
-        return -1;
+        return rt;
     }
     
     view_t *view = m_view_create("my_view");
     if (!view)
     {
-        return -1;
+        return rt;
     }
     
-    json_layout_ret_t layout_rt = m_json_layout_parse(json_x, view->layout);
-    if (layout_rt != JL_OK)
+    m_view_layout_set_json(view, (char*)json_x);
+    
+    rt = m_view_load(view);
+    if (rt != VIEW_OK)
     {
-        return -1;
+        return rt;
     }
+
     
-    return 0;
+    return MONA_OK;
 }

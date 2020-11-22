@@ -7,6 +7,7 @@
 #include "SDL.h"
 #include <time.h>
 #include "common.h"
+#include "mona.h"
 
 void
 render(SDL_Renderer *renderer)
@@ -37,7 +38,6 @@ render(SDL_Renderer *renderer)
     SDL_RenderPresent(renderer);
 }
 
-extern int mona_init(void);
 
 int
 main(int argc, char *argv[])

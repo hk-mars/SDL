@@ -9,14 +9,16 @@
 #define m_widget_h
 
 #include <stdio.h>
+
+#include "m_error.h"
 #include "common.h"
 
 typedef enum
 {
-    WIDGET_OK = 0,
-    WIDGET_ERR = 1,
-    WIDGET_NULL = 2,
-    WIDGET_NO_MEM = 3,
+    WIDGET_OK = MONA_BASE_WIDGET,
+    WIDGET_ERR,
+    WIDGET_NULL,
+    WIDGET_NO_MEM,
 } widget_ret_t;
 
 typedef enum

@@ -52,13 +52,13 @@ m_view_create(char *name)
     v->visible = true;
     v->state = VIEW_STATE_INIT;
     
-    m_view_show(v);
+    m_view_debug(v);
     
     return v;
 }
 
 void
-m_view_show(view_t *view)
+m_view_debug(view_t *view)
 {
     if (!view) return;
     
@@ -70,3 +70,36 @@ m_view_show(view_t *view)
     
     LOG_END("");
 }
+
+bool
+m_view_layout_set_json(view_t *view, char *json)
+{
+    if (!view || !json)
+    {
+        return false;
+    }
+    
+    view->layout->json = json;
+    
+    return true;
+}
+
+view_ret_t
+m_view_load(view_t *view)
+{
+    json_layout_ret_t rt;
+    
+    if (!view || !view->layout)
+    {
+        return VIEW_NULL;
+    }
+    
+    rt  = m_json_layout_parse(view->layout->json, view->layout);
+    if (rt != JL_OK)
+    {
+        return rt;
+    }
+    
+    return VIEW_OK;
+}
+
