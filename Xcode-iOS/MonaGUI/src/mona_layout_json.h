@@ -20,14 +20,14 @@
   THE SOFTWARE.
 */
 
-#ifndef m_layout_json_h
-#define m_layout_json_h
+#ifndef mona_layout_json_h
+#define mona_layout_json_h
 
 #include <stdio.h>
 
-#include "m_error.h"
-#include "m_layout_obj.h"
-#include "m_layout_utils.h"
+#include "mona_error.h"
+#include "mona_layout_obj.h"
+#include "mona_layout_utils.h"
 
 #define JSON_LAYOUT_DEBUG  1
 
@@ -51,12 +51,12 @@ typedef struct
     int cur_layer;
 } layout_json_t;
 
-json_layout_ret_t m_json_layout_parse(const char  *json, layout_json_t *layout);
+json_layout_ret_t mona_json_layout_parse(const char  *json, layout_json_t *layout);
 
-layout_json_t* m_layout_json_create(void);
+layout_json_t* mona_layout_json_create(void);
 
 #if JSON_LAYOUT_DEBUG
-int m_json_layout_test(void);
+int mona_json_layout_test(void);
 #endif
 
-#endif /* m_layout_json_h */
+#endif /* mona_layout_json_h */

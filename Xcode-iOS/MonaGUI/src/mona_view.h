@@ -1,18 +1,18 @@
 //
-//  m_view.h
+//  mona_view.h
 //  Rectangles
 //
 //  Created by TobyMars on 2020/11/14.
 //
 
-#ifndef m_view_h
-#define m_view_h
+#ifndef mona_view_h
+#define mona_view_h
 
 #include <stdio.h>
 
-#include "m_error.h"
+#include "mona_error.h"
 #include "common.h"
-#include "m_layout_json.h"
+#include "mona_layout_json.h"
 
 #define VIEW_NAME_LEN_MAX  20
 
@@ -59,13 +59,13 @@ typedef struct
     
 } view_t;
 
-view_ret_t m_view_init(void);
+view_ret_t mona_view_init(void);
 
-view_t* m_view_create(char *name);
+view_t* mona_view_create(char *name);
 
-void m_view_debug(view_t *view);
+void mona_view_debug(view_t *view);
 
-bool m_view_layout_set_json(view_t *view, char *json);
-view_ret_t m_view_load(view_t *view);
+bool mona_view_layout_set_json(view_t *view, char *json);
+view_ret_t mona_view_load(view_t *view);
 
-#endif /* m_view_h */
+#endif /* mona_view_h */

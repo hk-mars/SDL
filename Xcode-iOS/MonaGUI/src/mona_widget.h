@@ -1,16 +1,16 @@
 //
-//  m_widget.h
+//  mona_widget.h
 //  Rectangles
 //
 //  Created by TobyMars on 2020/11/1.
 //
 
-#ifndef m_widget_h
-#define m_widget_h
+#ifndef mona_widget_h
+#define mona_widget_h
 
 #include <stdio.h>
 
-#include "m_error.h"
+#include "mona_error.h"
 #include "common.h"
 
 typedef enum
@@ -99,4 +99,4 @@ typedef struct
     
 } widget_t;
 
-#endif /* m_widget_h */
+#endif /* mona_widget_h */

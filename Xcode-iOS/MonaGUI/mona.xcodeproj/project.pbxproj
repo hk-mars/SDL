@@ -10,16 +10,16 @@
 		1D3623EC0D0F72F000981E51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		4946F52025580A630052FFB0 /* m_layout_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F51F25580A630052FFB0 /* m_layout_utils.c */; };
-		4946F52A255FD4A80052FFB0 /* m_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F529255FD4A80052FFB0 /* m_view.c */; };
+		4946F52025580A630052FFB0 /* mona_layout_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F51F25580A630052FFB0 /* mona_layout_utils.c */; };
+		4946F52A255FD4A80052FFB0 /* mona_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F529255FD4A80052FFB0 /* mona_view.c */; };
 		49D2D7BF2529A85D00314FD7 /* mona.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7BE2529A85D00314FD7 /* mona.c */; };
 		49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */; };
 		49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D7252AC46500314FD7 /* cJSON.c */; };
 		49D2D7DC252ACE4200314FD7 /* cJSON_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DB252ACE4200314FD7 /* cJSON_test.c */; };
-		49D2D7DF25332B3B00314FD7 /* m_layout_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* m_layout_json.c */; };
-		49D2D7E225458E0A00314FD7 /* m_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* m_layout_obj.c */; };
-		49D2D7E5254EB75900314FD7 /* m_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* m_widget.c */; };
-		49FEAA172569176800B60EC1 /* m_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* m_error.c */; };
+		49D2D7DF25332B3B00314FD7 /* mona_layout_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* mona_layout_json.c */; };
+		49D2D7E225458E0A00314FD7 /* mona_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */; };
+		49D2D7E5254EB75900314FD7 /* mona_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* mona_widget.c */; };
+		49FEAA172569176800B60EC1 /* mona_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* mona_error.c */; };
 		F3F7590022AC5EC7001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590122AC5F00001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590222AC5F3D001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
@@ -269,10 +269,10 @@
 		1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Fireworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Fireworks.app; path = Rectangles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		4946F51E25580A630052FFB0 /* m_layout_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_layout_utils.h; sourceTree = "<group>"; };
-		4946F51F25580A630052FFB0 /* m_layout_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_layout_utils.c; sourceTree = "<group>"; };
-		4946F528255FD4A80052FFB0 /* m_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_view.h; sourceTree = "<group>"; };
-		4946F529255FD4A80052FFB0 /* m_view.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_view.c; sourceTree = "<group>"; };
+		4946F51E25580A630052FFB0 /* mona_layout_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_layout_utils.h; sourceTree = "<group>"; };
+		4946F51F25580A630052FFB0 /* mona_layout_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_layout_utils.c; sourceTree = "<group>"; };
+		4946F528255FD4A80052FFB0 /* mona_view.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_view.h; sourceTree = "<group>"; };
+		4946F529255FD4A80052FFB0 /* mona_view.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_view.c; sourceTree = "<group>"; };
 		49D2D7BE2529A85D00314FD7 /* mona.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mona.c; sourceTree = "<group>"; };
 		49D2D7C22529AD5500314FD7 /* mona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mona.h; sourceTree = "<group>"; };
 		49D2D7CC252AC43B00314FD7 /* cJSON_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON_Utils.h; sourceTree = "<group>"; };
@@ -280,14 +280,14 @@
 		49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON_Utils.c; sourceTree = "<group>"; };
 		49D2D7D7252AC46500314FD7 /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		49D2D7DB252ACE4200314FD7 /* cJSON_test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON_test.c; sourceTree = "<group>"; };
-		49D2D7DD25332B3B00314FD7 /* m_layout_json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_layout_json.h; sourceTree = "<group>"; };
-		49D2D7DE25332B3B00314FD7 /* m_layout_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_layout_json.c; sourceTree = "<group>"; };
-		49D2D7E025458E0A00314FD7 /* m_layout_obj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_layout_obj.h; sourceTree = "<group>"; };
-		49D2D7E125458E0A00314FD7 /* m_layout_obj.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_layout_obj.c; sourceTree = "<group>"; };
-		49D2D7E3254EB75900314FD7 /* m_widget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_widget.h; sourceTree = "<group>"; };
-		49D2D7E4254EB75900314FD7 /* m_widget.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_widget.c; sourceTree = "<group>"; };
-		49FEAA152569176800B60EC1 /* m_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = m_error.h; sourceTree = "<group>"; };
-		49FEAA162569176800B60EC1 /* m_error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = m_error.c; sourceTree = "<group>"; };
+		49D2D7DD25332B3B00314FD7 /* mona_layout_json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_layout_json.h; sourceTree = "<group>"; };
+		49D2D7DE25332B3B00314FD7 /* mona_layout_json.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_layout_json.c; sourceTree = "<group>"; };
+		49D2D7E025458E0A00314FD7 /* mona_layout_obj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_layout_obj.h; sourceTree = "<group>"; };
+		49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_layout_obj.c; sourceTree = "<group>"; };
+		49D2D7E3254EB75900314FD7 /* mona_widget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_widget.h; sourceTree = "<group>"; };
+		49D2D7E4254EB75900314FD7 /* mona_widget.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_widget.c; sourceTree = "<group>"; };
+		49FEAA152569176800B60EC1 /* mona_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_error.h; sourceTree = "<group>"; };
+		49FEAA162569176800B60EC1 /* mona_error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_error.c; sourceTree = "<group>"; };
 		49FEAA1F25691BF300B60EC1 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F758FF22AC5EC7001D97F2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
@@ -564,19 +564,19 @@
 				49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */,
 				49D2D7D4252AC45300314FD7 /* cJSON.h */,
 				49D2D7CC252AC43B00314FD7 /* cJSON_Utils.h */,
-				49D2D7DD25332B3B00314FD7 /* m_layout_json.h */,
-				49D2D7DE25332B3B00314FD7 /* m_layout_json.c */,
-				4946F51E25580A630052FFB0 /* m_layout_utils.h */,
-				4946F51F25580A630052FFB0 /* m_layout_utils.c */,
-				49D2D7E025458E0A00314FD7 /* m_layout_obj.h */,
-				49D2D7E125458E0A00314FD7 /* m_layout_obj.c */,
-				49D2D7E3254EB75900314FD7 /* m_widget.h */,
-				4946F528255FD4A80052FFB0 /* m_view.h */,
-				4946F529255FD4A80052FFB0 /* m_view.c */,
-				49D2D7E4254EB75900314FD7 /* m_widget.c */,
+				49D2D7DD25332B3B00314FD7 /* mona_layout_json.h */,
+				49D2D7DE25332B3B00314FD7 /* mona_layout_json.c */,
+				4946F51E25580A630052FFB0 /* mona_layout_utils.h */,
+				4946F51F25580A630052FFB0 /* mona_layout_utils.c */,
+				49D2D7E025458E0A00314FD7 /* mona_layout_obj.h */,
+				49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */,
+				49D2D7E3254EB75900314FD7 /* mona_widget.h */,
+				4946F528255FD4A80052FFB0 /* mona_view.h */,
+				4946F529255FD4A80052FFB0 /* mona_view.c */,
+				49D2D7E4254EB75900314FD7 /* mona_widget.c */,
 				49D2D7C22529AD5500314FD7 /* mona.h */,
-				49FEAA152569176800B60EC1 /* m_error.h */,
-				49FEAA162569176800B60EC1 /* m_error.c */,
+				49FEAA152569176800B60EC1 /* mona_error.h */,
+				49FEAA162569176800B60EC1 /* mona_error.c */,
 				49D2D7BE2529A85D00314FD7 /* mona.c */,
 				FD77A0060E26BC0500F39101 /* common.c */,
 				FD77A0070E26BC0500F39101 /* common.h */,
@@ -967,15 +967,15 @@
 				FD77A0130E26BC0500F39101 /* common.c in Sources */,
 				49D2D7DC252ACE4200314FD7 /* cJSON_test.c in Sources */,
 				49D2D7BF2529A85D00314FD7 /* mona.c in Sources */,
-				49D2D7E225458E0A00314FD7 /* m_layout_obj.c in Sources */,
+				49D2D7E225458E0A00314FD7 /* mona_layout_obj.c in Sources */,
 				FD77A0160E26BC0500F39101 /* rectangles.c in Sources */,
-				4946F52025580A630052FFB0 /* m_layout_utils.c in Sources */,
-				4946F52A255FD4A80052FFB0 /* m_view.c in Sources */,
+				4946F52025580A630052FFB0 /* mona_layout_utils.c in Sources */,
+				4946F52A255FD4A80052FFB0 /* mona_view.c in Sources */,
 				49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */,
-				49D2D7DF25332B3B00314FD7 /* m_layout_json.c in Sources */,
-				49FEAA172569176800B60EC1 /* m_error.c in Sources */,
+				49D2D7DF25332B3B00314FD7 /* mona_layout_json.c in Sources */,
+				49FEAA172569176800B60EC1 /* mona_error.c in Sources */,
 				49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */,
-				49D2D7E5254EB75900314FD7 /* m_widget.c in Sources */,
+				49D2D7E5254EB75900314FD7 /* mona_widget.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

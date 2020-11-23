@@ -20,7 +20,7 @@
   THE SOFTWARE.
 */
 
-#include "m_layout_json.h"
+#include "mona_layout_json.h"
 #include "cJSON.h"
 
 #include "common.h"
@@ -149,7 +149,7 @@ parse_layer(cJSON *array, layout_json_t *layout)
 }
 
 json_layout_ret_t
-m_json_layout_parse(const char *json, layout_json_t *layout)
+mona_json_layout_parse(const char *json, layout_json_t *layout)
 {
     json_layout_ret_t rt = JL_OK;
     cJSON *o;
@@ -189,7 +189,7 @@ end:
 }
 
 layout_json_t*
-m_layout_json_create(void)
+mona_layout_json_create(void)
 {
     layout_json_t *layout = mona_malloc(sizeof(layout_json_t));
     if (!layout)
@@ -219,11 +219,11 @@ static const char *json_test = "{\n\
 }";
 
 int
-m_json_layout_test(void)
+mona_json_layout_test(void)
 {
-    layout_json_t *layout = m_layout_json_create();
+    layout_json_t *layout = mona_layout_json_create();
     
-    json_layout_ret_t rt = m_json_layout_parse(json_test, layout);
+    json_layout_ret_t rt = mona_json_layout_parse(json_test, layout);
     
     return rt;
 }

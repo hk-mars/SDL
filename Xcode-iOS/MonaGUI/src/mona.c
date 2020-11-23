@@ -31,9 +31,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cJSON.h"
-#include "m_error.h"
-#include "m_layout_json.h"
-#include "m_view.h"
+#include "mona_error.h"
+#include "mona_layout_json.h"
+#include "mona_view.h"
 
 #define X "mona"
 #define LOG_X(FORMAT, ARGS...)  \
@@ -79,21 +79,21 @@ mona_init(void)
     
     LOG_X("cJSON %s\n", cJSON_Version());
     
-    mona_ret_t rt = m_view_init();
+    mona_ret_t rt = mona_view_init();
     if (rt != VIEW_OK)
     {
         return rt;
     }
     
-    view_t *view = m_view_create("my_view");
+    view_t *view = mona_view_create("my_view");
     if (!view)
     {
         return rt;
     }
     
-    m_view_layout_set_json(view, (char*)json_x);
+    mona_view_layout_set_json(view, (char*)json_x);
     
-    rt = m_view_load(view);
+    rt = mona_view_load(view);
     if (rt != VIEW_OK)
     {
         return rt;

@@ -1,11 +1,11 @@
 //
-//  m_view.c
+//  mona_view.c
 //  Rectangles
 //
 //  Created by TobyMars on 2020/11/14.
 //
 
-#include "m_view.h"
+#include "mona_view.h"
 
 #define X "view"
 #define LOG_X(FORMAT, ARGS...)  \
@@ -15,7 +15,7 @@ printf("[%s] ", X); printf(FORMAT, ##ARGS); \
 
 
 view_ret_t
-m_view_init(void)
+mona_view_init(void)
 {
     LOG_X("%s \n", __FUNCTION__);
     
@@ -23,7 +23,7 @@ m_view_init(void)
 }
 
 view_t*
-m_view_create(char *name)
+mona_view_create(char *name)
 {
     view_t *v = mona_malloc(sizeof(view_t));
     if (!v)
@@ -32,7 +32,7 @@ m_view_create(char *name)
         return NULL;
     }
     
-    v->layout = m_layout_json_create();
+    v->layout = mona_layout_json_create();
     if (!v->layout)
     {
         LOG_ERR("failed to malloc mem for layout \n");
@@ -52,13 +52,13 @@ m_view_create(char *name)
     v->visible = true;
     v->state = VIEW_STATE_INIT;
     
-    m_view_debug(v);
+    mona_view_debug(v);
     
     return v;
 }
 
 void
-m_view_debug(view_t *view)
+mona_view_debug(view_t *view)
 {
     if (!view) return;
     
@@ -72,7 +72,7 @@ m_view_debug(view_t *view)
 }
 
 bool
-m_view_layout_set_json(view_t *view, char *json)
+mona_view_layout_set_json(view_t *view, char *json)
 {
     if (!view || !json)
     {
@@ -85,7 +85,7 @@ m_view_layout_set_json(view_t *view, char *json)
 }
 
 view_ret_t
-m_view_load(view_t *view)
+mona_view_load(view_t *view)
 {
     json_layout_ret_t rt;
     
@@ -94,7 +94,7 @@ m_view_load(view_t *view)
         return VIEW_NULL;
     }
     
-    rt  = m_json_layout_parse(view->layout->json, view->layout);
+    rt  = mona_json_layout_parse(view->layout->json, view->layout);
     if (rt != JL_OK)
     {
         return rt;
