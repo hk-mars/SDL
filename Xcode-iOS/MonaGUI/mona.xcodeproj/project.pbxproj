@@ -19,6 +19,7 @@
 		49D2D7DF25332B3B00314FD7 /* mona_layout_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* mona_layout_json.c */; };
 		49D2D7E225458E0A00314FD7 /* mona_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */; };
 		49D2D7E5254EB75900314FD7 /* mona_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* mona_widget.c */; };
+		49FE8FEE256B999600619D32 /* mona_canvas.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE8FED256B999600619D32 /* mona_canvas.c */; };
 		49FEAA172569176800B60EC1 /* mona_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* mona_error.c */; };
 		F3F7590022AC5EC7001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590122AC5F00001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
@@ -286,6 +287,8 @@
 		49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_layout_obj.c; sourceTree = "<group>"; };
 		49D2D7E3254EB75900314FD7 /* mona_widget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_widget.h; sourceTree = "<group>"; };
 		49D2D7E4254EB75900314FD7 /* mona_widget.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_widget.c; sourceTree = "<group>"; };
+		49FE8FEC256B999600619D32 /* mona_canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_canvas.h; sourceTree = "<group>"; };
+		49FE8FED256B999600619D32 /* mona_canvas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_canvas.c; sourceTree = "<group>"; };
 		49FEAA152569176800B60EC1 /* mona_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_error.h; sourceTree = "<group>"; };
 		49FEAA162569176800B60EC1 /* mona_error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_error.c; sourceTree = "<group>"; };
 		49FEAA1F25691BF300B60EC1 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
@@ -587,6 +590,8 @@
 				FD77A0090E26BC0500F39101 /* mixer.c */,
 				FDB652110E43D21A00F688B5 /* keyboard.c */,
 				FDC52EE40E284410008D768C /* fireworks.c */,
+				49FE8FEC256B999600619D32 /* mona_canvas.h */,
+				49FE8FED256B999600619D32 /* mona_canvas.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -971,6 +976,7 @@
 				FD77A0160E26BC0500F39101 /* rectangles.c in Sources */,
 				4946F52025580A630052FFB0 /* mona_layout_utils.c in Sources */,
 				4946F52A255FD4A80052FFB0 /* mona_view.c in Sources */,
+				49FE8FEE256B999600619D32 /* mona_canvas.c in Sources */,
 				49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */,
 				49D2D7DF25332B3B00314FD7 /* mona_layout_json.c in Sources */,
 				49FEAA172569176800B60EC1 /* mona_error.c in Sources */,
