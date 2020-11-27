@@ -1,9 +1,9 @@
 
 
-# Overview
+# Mona Framework Overview
 
 
-===== human view =====
+===== vision =====
 
 ===== view =====
 
@@ -34,6 +34,13 @@
 
 - show layer construction
 - show detailed timing sequence
+
+# Abbreviate
+
+
+- gal: graphic abstract layer
+
+
 
 
 

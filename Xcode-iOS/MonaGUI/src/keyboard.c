@@ -7,6 +7,8 @@
 #include "SDL.h"
 #include "common.h"
 
+#include "mona.h"
+
 #define TEST_INPUT_RECT
 
 #define GLYPH_SIZE_IMAGE 16     /* size of glyphs (characters) in the bitmap font file */
@@ -213,89 +215,100 @@ draw()
 int
 main(int argc, char *argv[])
 {
-    SDL_Window *window;
-    SDL_Event event;            /* last event received */
-    SDL_Scancode scancode;      /* scancode of last key we pushed */
-    int width;
-    int height;
-    int done;
-    SDL_Rect textrect;
-
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        printf("Error initializing SDL: %s", SDL_GetError());
-    }
-    /* create window */
-    window = SDL_CreateWindow("iOS keyboard test", 0, 0, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-    /* create renderer */
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-
-    SDL_GetWindowSize(window, &width, &height);
-    SDL_RenderSetLogicalSize(renderer, width, height);
-
-    /* load up our font */
-    loadFont();
     
-    /* Show onscreen keyboard */
-#ifdef TEST_INPUT_RECT
-    textrect.x = 0;
-    textrect.y = height - GLYPH_SIZE_IMAGE;
-    textrect.w = width;
-    textrect.h = GLYPH_SIZE_IMAGE;
-    SDL_SetTextInputRect(&textrect);
-#endif
-    SDL_StartTextInput();
-
-    done = 0;
-    while (!done) {
-        while (SDL_PollEvent(&event)) {
-            switch (event.type) {
-            case SDL_QUIT:
-                done = 1;
-                break;
-            case SDL_WINDOWEVENT:
-                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
-					width = event.window.data1;
-					height = event.window.data2;
-                    SDL_RenderSetLogicalSize(renderer, width, height);
-#ifdef TEST_INPUT_RECT
-                    textrect.x = 0;
-                    textrect.y = height - GLYPH_SIZE_IMAGE;
-                    textrect.w = width;
-                    textrect.h = GLYPH_SIZE_IMAGE;
-                    SDL_SetTextInputRect(&textrect);
-#endif
-                }
-                break;
-            case SDL_KEYDOWN:
-                if (event.key.keysym.scancode == SDL_SCANCODE_BACKSPACE) {
-                    if (numChars > 0) {
-                        numChars--;
-                    }
-                } else if (numChars + 1 < MAX_CHARS) {
-                    int index = keyToGlyphIndex(event.key.keysym);
-                    if (index >= 0) {
-                        glyphs[numChars++] = index;
-                    }
-                }
-                break;
-            case SDL_MOUSEBUTTONUP:
-                /* mouse up toggles onscreen keyboard visibility */
-                if (SDL_IsTextInputActive()) {
-                    SDL_StopTextInput();
-                } else {
-                    SDL_StartTextInput();
-                }
-                break;
-            }
-        }
-
-        draw();
-        SDL_Delay(15);
+    mona_ret_t rt = mona_init();
+    if (rt != MONA_OK) {
     }
-
-    SDL_DestroyTexture(texture);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    
+    SDL_Event event;
+    while (SDL_WaitEvent(&event)) {
+        mona_show();
+        SDL_Delay(1000);
+    }
+    
+//    SDL_Window *window;
+//    SDL_Event event;            /* last event received */
+//    SDL_Scancode scancode;      /* scancode of last key we pushed */
+//    int width;
+//    int height;
+//    int done;
+//    SDL_Rect textrect;
+//
+//    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+//        printf("Error initializing SDL: %s", SDL_GetError());
+//    }
+//    /* create window */
+//    window = SDL_CreateWindow("iOS keyboard test", 0, 0, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+//    /* create renderer */
+//    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+//
+//    SDL_GetWindowSize(window, &width, &height);
+//    SDL_RenderSetLogicalSize(renderer, width, height);
+//
+//    /* load up our font */
+//    loadFont();
+//
+//    /* Show onscreen keyboard */
+//#ifdef TEST_INPUT_RECT
+//    textrect.x = 0;
+//    textrect.y = height - GLYPH_SIZE_IMAGE;
+//    textrect.w = width;
+//    textrect.h = GLYPH_SIZE_IMAGE;
+//    SDL_SetTextInputRect(&textrect);
+//#endif
+//    SDL_StartTextInput();
+//
+//    done = 0;
+//    while (!done) {
+//        while (SDL_PollEvent(&event)) {
+//            switch (event.type) {
+//            case SDL_QUIT:
+//                done = 1;
+//                break;
+//            case SDL_WINDOWEVENT:
+//                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+//					width = event.window.data1;
+//					height = event.window.data2;
+//                    SDL_RenderSetLogicalSize(renderer, width, height);
+//#ifdef TEST_INPUT_RECT
+//                    textrect.x = 0;
+//                    textrect.y = height - GLYPH_SIZE_IMAGE;
+//                    textrect.w = width;
+//                    textrect.h = GLYPH_SIZE_IMAGE;
+//                    SDL_SetTextInputRect(&textrect);
+//#endif
+//                }
+//                break;
+//            case SDL_KEYDOWN:
+//                if (event.key.keysym.scancode == SDL_SCANCODE_BACKSPACE) {
+//                    if (numChars > 0) {
+//                        numChars--;
+//                    }
+//                } else if (numChars + 1 < MAX_CHARS) {
+//                    int index = keyToGlyphIndex(event.key.keysym);
+//                    if (index >= 0) {
+//                        glyphs[numChars++] = index;
+//                    }
+//                }
+//                break;
+//            case SDL_MOUSEBUTTONUP:
+//                /* mouse up toggles onscreen keyboard visibility */
+//                if (SDL_IsTextInputActive()) {
+//                    SDL_StopTextInput();
+//                } else {
+//                    SDL_StartTextInput();
+//                }
+//                break;
+//            }
+//        }
+//
+//        draw();
+//        SDL_Delay(15);
+//    }
+//
+//    SDL_DestroyTexture(texture);
+//    SDL_DestroyRenderer(renderer);
+//    SDL_DestroyWindow(window);
+//    SDL_Quit();
     return 0;
 }

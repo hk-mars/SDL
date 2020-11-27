@@ -52,6 +52,7 @@ main(int argc, char *argv[])
 
     mona_init();
     
+    
     /* initialize SDL */
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         fatalError("Could not initialize SDL");

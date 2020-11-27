@@ -34,6 +34,7 @@
 #include "mona_error.h"
 #include "mona_layout_json.h"
 #include "mona_view.h"
+#include "mona_gal.h"
 
 #define X "mona"
 #define LOG_X(FORMAT, ARGS...)  \
@@ -72,6 +73,8 @@ mona_version(void)
     return version;
 }
 
+static view_t *m_view = NULL;
+
 mona_ret_t
 mona_init(void)
 {
@@ -85,20 +88,35 @@ mona_init(void)
         return rt;
     }
     
-    view_t *view = mona_view_create("my_view");
-    if (!view)
+    m_view = mona_view_create("my_view");
+    if (!m_view)
     {
         return rt;
     }
     
-    mona_view_layout_set_json(view, (char*)json_x);
+    mona_view_layout_set_json(m_view, (char*)json_x);
     
-    rt = mona_view_load(view);
+    rt = mona_view_load(m_view);
     if (rt != VIEW_OK)
     {
         return rt;
     }
-
+    
+    rt = mona_gal_init();
+    if (rt != MONA_OK)
+    {
+        return rt;
+    }
     
     return MONA_OK;
+}
+
+void
+mona_show(void)
+{
+    mona_ret_t rt = mona_view_present(m_view);
+    if (rt != VIEW_OK)
+    {
+        
+    }
 }

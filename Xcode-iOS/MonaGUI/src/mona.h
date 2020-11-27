@@ -31,6 +31,8 @@
 
 #include "mona_error.h"
 
-extern mona_ret_t mona_init(void);
+mona_ret_t mona_init(void);
+
+void mona_show(void);
 
 #endif /* mona_h */

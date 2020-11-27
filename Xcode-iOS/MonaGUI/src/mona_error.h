@@ -19,6 +19,7 @@
 #define MONA_BASE_VIEW      0x100
 #define MONA_BASE_LAYOUT    0x200
 #define MONA_BASE_WIDGET    0x300
+#define MONA_BASE_CANVAS    0x400
 typedef unsigned int mona_ret_t;
 
 #endif /* mona_error_h */

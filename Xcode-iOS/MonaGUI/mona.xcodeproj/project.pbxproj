@@ -20,6 +20,42 @@
 		49D2D7E225458E0A00314FD7 /* mona_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */; };
 		49D2D7E5254EB75900314FD7 /* mona_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* mona_widget.c */; };
 		49FE8FEE256B999600619D32 /* mona_canvas.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE8FED256B999600619D32 /* mona_canvas.c */; };
+		49FE8FF1256CF0FC00619D32 /* mona_gal.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE8FF0256CF0FC00619D32 /* mona_gal.c */; };
+		49FE8FF4256E525600619D32 /* mona.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7BE2529A85D00314FD7 /* mona.c */; };
+		49FE8FF5256E525C00619D32 /* mona_canvas.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE8FED256B999600619D32 /* mona_canvas.c */; };
+		49FE8FF7256E526800619D32 /* mona_gal.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE8FF0256CF0FC00619D32 /* mona_gal.c */; };
+		49FE8FF8256E527800619D32 /* mona_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* mona_error.c */; };
+		49FE8FF9256E527B00619D32 /* mona_widget.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E4254EB75900314FD7 /* mona_widget.c */; };
+		49FE8FFA256E528000619D32 /* mona_view.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F529255FD4A80052FFB0 /* mona_view.c */; };
+		49FE8FFB256E528300619D32 /* mona_layout_obj.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */; };
+		49FE8FFC256E528700619D32 /* mona_layout_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 4946F51F25580A630052FFB0 /* mona_layout_utils.c */; };
+		49FE8FFD256E528A00619D32 /* mona_layout_json.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7DE25332B3B00314FD7 /* mona_layout_json.c */; };
+		49FE8FFE256E529200619D32 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D7252AC46500314FD7 /* cJSON.c */; };
+		49FE8FFF256E529400619D32 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7D5252AC45C00314FD7 /* cJSON_Utils.c */; };
+		49FE9002256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9003256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9004256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9005256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9006256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9007256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9008256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE9009256E59D200619D32 /* mona_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE9001256E59D200619D32 /* mona_render.c */; };
+		49FE900C256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE900D256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE900E256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE900F256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE9010256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE9011256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE9012256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE9013256F9B1C00619D32 /* mona_sdl.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE900B256F9B1C00619D32 /* mona_sdl.c */; };
+		49FE90162571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE90172571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE90182571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE90192571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE901A2571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE901B2571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE901C2571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
+		49FE901D2571072900619D32 /* mona_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FE90152571072900619D32 /* mona_event.c */; };
 		49FEAA172569176800B60EC1 /* mona_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 49FEAA162569176800B60EC1 /* mona_error.c */; };
 		F3F7590022AC5EC7001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
 		F3F7590122AC5F00001D97F2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F758FF22AC5EC7001D97F2 /* Metal.framework */; };
@@ -289,6 +325,14 @@
 		49D2D7E4254EB75900314FD7 /* mona_widget.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_widget.c; sourceTree = "<group>"; };
 		49FE8FEC256B999600619D32 /* mona_canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_canvas.h; sourceTree = "<group>"; };
 		49FE8FED256B999600619D32 /* mona_canvas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_canvas.c; sourceTree = "<group>"; };
+		49FE8FEF256CF0FB00619D32 /* mona_gal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_gal.h; sourceTree = "<group>"; };
+		49FE8FF0256CF0FC00619D32 /* mona_gal.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_gal.c; sourceTree = "<group>"; };
+		49FE9000256E59D200619D32 /* mona_render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_render.h; sourceTree = "<group>"; };
+		49FE9001256E59D200619D32 /* mona_render.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_render.c; sourceTree = "<group>"; };
+		49FE900A256F9B1C00619D32 /* mona_sdl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_sdl.h; sourceTree = "<group>"; };
+		49FE900B256F9B1C00619D32 /* mona_sdl.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_sdl.c; sourceTree = "<group>"; };
+		49FE90142571072900619D32 /* mona_event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_event.h; sourceTree = "<group>"; };
+		49FE90152571072900619D32 /* mona_event.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_event.c; sourceTree = "<group>"; };
 		49FEAA152569176800B60EC1 /* mona_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mona_error.h; sourceTree = "<group>"; };
 		49FEAA162569176800B60EC1 /* mona_error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mona_error.c; sourceTree = "<group>"; };
 		49FEAA1F25691BF300B60EC1 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
@@ -321,7 +365,7 @@
 		FDB651CD0E43D19800F688B5 /* ship.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = ship.bmp; sourceTree = "<group>"; };
 		FDB651CE0E43D19800F688B5 /* space.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = space.bmp; sourceTree = "<group>"; };
 		FDB651CF0E43D19800F688B5 /* stroke.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = stroke.bmp; sourceTree = "<group>"; };
-		FDB6520C0E43D1F300F688B5 /* Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB6520C0E43D1F300F688B5 /* Keyboard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Keyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB652110E43D21A00F688B5 /* keyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyboard.c; sourceTree = "<group>"; };
 		FDB652C60E43E25900F688B5 /* kromasky_16x16.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = kromasky_16x16.bmp; sourceTree = "<group>"; };
 		FDB96ED30DEFC9C700FAF19F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -575,6 +619,8 @@
 				49D2D7E125458E0A00314FD7 /* mona_layout_obj.c */,
 				49D2D7E3254EB75900314FD7 /* mona_widget.h */,
 				4946F528255FD4A80052FFB0 /* mona_view.h */,
+				49FE9000256E59D200619D32 /* mona_render.h */,
+				49FE9001256E59D200619D32 /* mona_render.c */,
 				4946F529255FD4A80052FFB0 /* mona_view.c */,
 				49D2D7E4254EB75900314FD7 /* mona_widget.c */,
 				49D2D7C22529AD5500314FD7 /* mona.h */,
@@ -587,11 +633,17 @@
 				FD77A0080E26BC0500F39101 /* happy.c */,
 				FD77A0050E26BC0500F39101 /* accelerometer.c */,
 				FD77A00B0E26BC0500F39101 /* touch.c */,
+				49FE8FEF256CF0FB00619D32 /* mona_gal.h */,
+				49FE8FF0256CF0FC00619D32 /* mona_gal.c */,
 				FD77A0090E26BC0500F39101 /* mixer.c */,
 				FDB652110E43D21A00F688B5 /* keyboard.c */,
+				49FE90142571072900619D32 /* mona_event.h */,
+				49FE90152571072900619D32 /* mona_event.c */,
 				FDC52EE40E284410008D768C /* fireworks.c */,
 				49FE8FEC256B999600619D32 /* mona_canvas.h */,
 				49FE8FED256B999600619D32 /* mona_canvas.c */,
+				49FE900A256F9B1C00619D32 /* mona_sdl.h */,
+				49FE900B256F9B1C00619D32 /* mona_sdl.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -972,14 +1024,18 @@
 				FD77A0130E26BC0500F39101 /* common.c in Sources */,
 				49D2D7DC252ACE4200314FD7 /* cJSON_test.c in Sources */,
 				49D2D7BF2529A85D00314FD7 /* mona.c in Sources */,
+				49FE9002256E59D200619D32 /* mona_render.c in Sources */,
 				49D2D7E225458E0A00314FD7 /* mona_layout_obj.c in Sources */,
 				FD77A0160E26BC0500F39101 /* rectangles.c in Sources */,
+				49FE90162571072900619D32 /* mona_event.c in Sources */,
 				4946F52025580A630052FFB0 /* mona_layout_utils.c in Sources */,
 				4946F52A255FD4A80052FFB0 /* mona_view.c in Sources */,
+				49FE900C256F9B1C00619D32 /* mona_sdl.c in Sources */,
 				49FE8FEE256B999600619D32 /* mona_canvas.c in Sources */,
 				49D2D7D8252AC46500314FD7 /* cJSON.c in Sources */,
 				49D2D7DF25332B3B00314FD7 /* mona_layout_json.c in Sources */,
 				49FEAA172569176800B60EC1 /* mona_error.c in Sources */,
+				49FE8FF1256CF0FC00619D32 /* mona_gal.c in Sources */,
 				49D2D7D6252AC45C00314FD7 /* cJSON_Utils.c in Sources */,
 				49D2D7E5254EB75900314FD7 /* mona_widget.c in Sources */,
 			);
@@ -989,6 +1045,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE900E256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9004256E59D200619D32 /* mona_render.c in Sources */,
+				49FE90182571072900619D32 /* mona_event.c in Sources */,
 				FA30DEB01BBF5A8F009C397F /* common.c in Sources */,
 				FA30DEB11BBF5A93009C397F /* happy.c in Sources */,
 			);
@@ -998,6 +1057,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE900D256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9003256E59D200619D32 /* mona_render.c in Sources */,
+				49FE90172571072900619D32 /* mona_event.c in Sources */,
 				FDC214870E26D78A00DDED23 /* common.c in Sources */,
 				FD77A00E0E26BC0500F39101 /* happy.c in Sources */,
 			);
@@ -1007,6 +1069,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE900F256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9005256E59D200619D32 /* mona_render.c in Sources */,
+				49FE90192571072900619D32 /* mona_event.c in Sources */,
 				FD77A0190E26BC0500F39101 /* common.c in Sources */,
 				FD77A02A0E26BC2700F39101 /* accelerometer.c in Sources */,
 			);
@@ -1016,8 +1081,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE8FFD256E528A00619D32 /* mona_layout_json.c in Sources */,
+				49FE8FF5256E525C00619D32 /* mona_canvas.c in Sources */,
+				49FE8FFA256E528000619D32 /* mona_view.c in Sources */,
+				49FE8FFB256E528300619D32 /* mona_layout_obj.c in Sources */,
+				49FE8FF4256E525600619D32 /* mona.c in Sources */,
+				49FE8FF7256E526800619D32 /* mona_gal.c in Sources */,
+				49FE9009256E59D200619D32 /* mona_render.c in Sources */,
+				49FE9013256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE8FF9256E527B00619D32 /* mona_widget.c in Sources */,
+				49FE901D2571072900619D32 /* mona_event.c in Sources */,
+				49FE8FF8256E527800619D32 /* mona_error.c in Sources */,
 				FDB651FD0E43D1F300F688B5 /* common.c in Sources */,
+				49FE8FFE256E529200619D32 /* cJSON.c in Sources */,
+				49FE8FFC256E528700619D32 /* mona_layout_utils.c in Sources */,
 				FDB652120E43D21A00F688B5 /* keyboard.c in Sources */,
+				49FE8FFF256E529400619D32 /* cJSON_Utils.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,6 +1104,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE9010256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9006256E59D200619D32 /* mona_render.c in Sources */,
+				49FE901A2571072900619D32 /* mona_event.c in Sources */,
 				FD77A01F0E26BC0500F39101 /* common.c in Sources */,
 				FD77A0230E26BC0500F39101 /* touch.c in Sources */,
 			);
@@ -1034,6 +1116,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE9012256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9008256E59D200619D32 /* mona_render.c in Sources */,
+				49FE901C2571072900619D32 /* mona_event.c in Sources */,
 				FDC52ECF0E2843D6008D768C /* common.c in Sources */,
 				FDC52EE50E284410008D768C /* fireworks.c in Sources */,
 			);
@@ -1043,6 +1128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FE9011256F9B1C00619D32 /* mona_sdl.c in Sources */,
+				49FE9007256E59D200619D32 /* mona_render.c in Sources */,
+				49FE901B2571072900619D32 /* mona_event.c in Sources */,
 				FD77A0250E26BC0500F39101 /* common.c in Sources */,
 				FD77A0270E26BC0500F39101 /* mixer.c in Sources */,
 			);

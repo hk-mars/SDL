@@ -14,6 +14,9 @@
 #include "common.h"
 #include "mona_layout_json.h"
 
+#include "mona_canvas.h"
+
+
 #define VIEW_NAME_LEN_MAX  20
 
 typedef enum
@@ -48,6 +51,12 @@ typedef enum
 
 typedef struct
 {
+    canvas_t *canvas;
+    
+} render_t;
+
+typedef struct
+{
     char name[VIEW_NAME_LEN_MAX + 1];
     layout_json_t *layout;
     
@@ -56,6 +65,7 @@ typedef struct
     bool enable;
     bool visible;
     
+    render_t render;
     
 } view_t;
 
@@ -66,6 +76,9 @@ view_t* mona_view_create(char *name);
 void mona_view_debug(view_t *view);
 
 bool mona_view_layout_set_json(view_t *view, char *json);
+
 view_ret_t mona_view_load(view_t *view);
+
+view_ret_t mona_view_present(view_t *view);
 
 #endif /* mona_view_h */

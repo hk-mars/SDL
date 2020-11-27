@@ -52,6 +52,8 @@ mona_view_create(char *name)
     v->visible = true;
     v->state = VIEW_STATE_INIT;
     
+    v->render.canvas = canvas_create();
+    
     mona_view_debug(v);
     
     return v;
@@ -102,4 +104,27 @@ mona_view_load(view_t *view)
     
     return VIEW_OK;
 }
+
+view_ret_t
+mona_view_present(view_t *view)
+{
+    json_layout_ret_t rt;
+    
+    if (!view) {
+        return VIEW_NULL;
+    }
+    
+    LOG_BEGIN("");
+    
+    canvas_obj_t obj;
+    
+//    canvas_set_obj(view->render.canvas, )
+    
+    canvas_sketch(view->render.canvas);
+    
+    LOG_END("");
+    
+    return VIEW_OK;
+}
+
 
