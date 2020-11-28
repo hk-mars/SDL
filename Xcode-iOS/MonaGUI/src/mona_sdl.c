@@ -8,6 +8,7 @@
 #include "mona_sdl.h"
 
 #include "SDL.h"
+#include "SDL_render.h"
 
 
 //The window we'll be rendering to
@@ -30,12 +31,22 @@ SDL_Renderer *renderer;
 
 static SDL_Texture *brush = 0;       /* texture for the brush */
 
+static SDL_Texture *m_img_texture = NULL;
+
+typedef struct
+{
+    int w;
+    int h;
+    
+    SDL_Texture *texture;
+} mona_texture_info_t;
+
 /*
     draws a line from (startx, starty) to (startx + dx, starty + dy)
     this is accomplished by drawing several blots spaced PIXELS_PER_ITERATION apart
 */
 void
-drawLine(SDL_Renderer *renderer, float startx, float starty, float dx, float dy)
+draw_brush_line(SDL_Renderer *renderer, float startx, float starty, float dx, float dy)
 {
 
     float distance = sqrt(dx * dx + dy * dy);   /* length of line segment (pythagoras) */
@@ -66,27 +77,63 @@ drawLine(SDL_Renderer *renderer, float startx, float starty, float dx, float dy)
     }
 }
 
+static mona_texture_info_t m_texture_info;
+static SDL_Texture*
+load_texture_as_image(SDL_Renderer *renderer, const char *image_fpath)
+{
+    SDL_Surface *bmp_surface;
+    bmp_surface = SDL_LoadBMP(image_fpath);
+    if (bmp_surface == NULL) {
+        LOG_ERR("could not load %s \n", image_fpath);
+        return false;
+    }
+    
+    SDL_Texture *t = SDL_CreateTextureFromSurface(renderer, bmp_surface);
+    if (t == 0) {
+        LOG_ERR("could not create brush texture");
+        SDL_FreeSurface(bmp_surface);
+        return false;
+    }
+    
+    /* additive blending -- laying strokes on top of eachother makes them brighter */
+    SDL_SetTextureBlendMode(brush, SDL_BLENDMODE_ADD);
+    /* set brush color (red) */
+    SDL_SetTextureColorMod(brush, 0, 100, 0);
+    
+    m_texture_info.w = bmp_surface->w;
+    m_texture_info.h = bmp_surface->h;
+    
+    SDL_FreeSurface(bmp_surface);
+    
+    return t;
+}
+
 /*
     loads the brush texture
 */
-static void
-static load_brush_texture(SDL_Renderer *renderer)
+static bool
+load_brush_texture(SDL_Renderer *renderer)
 {
     SDL_Surface *bmp_surface;
     bmp_surface = SDL_LoadBMP("stroke.bmp");
     if (bmp_surface == NULL) {
         LOG_ERR("could not load stroke.bmp");
+        return false;
     }
+    
     brush =
         SDL_CreateTextureFromSurface(renderer, bmp_surface);
     SDL_FreeSurface(bmp_surface);
     if (brush == 0) {
         LOG_ERR("could not create brush texture");
+        return false;
     }
     /* additive blending -- laying strokes on top of eachother makes them brighter */
     SDL_SetTextureBlendMode(brush, SDL_BLENDMODE_ADD);
     /* set brush color (red) */
-    SDL_SetTextureColorMod(brush, 255, 100, 100);
+    SDL_SetTextureColorMod(brush, 0, 100, 0);
+    
+    return true;
 }
 
 bool
@@ -117,7 +164,8 @@ mona_sdl_init(void)
 //        }
         
         /* create main window and renderer */
-        gWindow = SDL_CreateWindow(NULL, 0, 0, 320, 480, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI);
+        gWindow = SDL_CreateWindow(NULL, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT,
+                                   SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI);
         renderer = SDL_CreateRenderer(gWindow, 0, 0);
 
         int w, h;
@@ -140,18 +188,15 @@ mona_sdl_init(void)
 bool
 mona_sdl_load_bmp(const char *fname)
 {
-    //Loading success flag
-    bool success = true;
-
-    //Load splash image
-    gHelloWorld = SDL_LoadBMP(fname);
-    if( gHelloWorld == NULL )
+    SDL_Texture *t = load_texture_as_image(renderer, fname);
+    if(!t)
     {
-        printf( "Unable to load image %s! SDL Error: %s\n", fname, SDL_GetError() );
-        success = false;
+        LOG_DEBUG("Unable to load image %s! SDL Error: %s \n", fname, SDL_GetError() );
+        return false;
     }
-
-    return success;
+    
+    m_img_texture = t;
+    return true;
 }
 
 void
@@ -170,41 +215,42 @@ mona_sdl_close(void)
 }
 
 void
+mona_sdl_clear_screen(void)
+{
+    SDL_RenderClear(renderer);
+}
+
+void
 mona_sdl_update_screen(void)
 {
     LOG_BEGIN("");
     
-//    //Apply the image
-//    SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-//
-//    //Update the surface
-//    SDL_UpdateWindowSurface(gWindow);
+#if MONA_SDL_CLEAR_SCREEN_BEFORE_UPDATE
+    mona_sdl_clear_screen();
+#endif
     
-    int x, y, dx, dy;           /* mouse location          */
-    Uint8 state;                /* mouse (touch) state */
-    SDL_Event event;
-    int done;                   /* does user want to quit? */
-    int w, h;
-    
-//    done = 0;
-//    while (!done && SDL_WaitEvent(&event)) {
-//        switch (event.type) {
-//        case SDL_QUIT:
-//            done = 1;
-//            break;
-//        case SDL_MOUSEMOTION:
-//            state = SDL_GetMouseState(&x, &y);  /* get its location */
-//            LOG_DEBUG("x:%d, y:%d \n", x, y);
-//            SDL_GetRelativeMouseState(&dx, &dy);        /* find how much the mouse moved */
-//            if (state & SDL_BUTTON_LMASK) {     /* is the mouse (touch) down? */
-//                drawLine(renderer, x - dx, y - dy, dx, dy);       /* draw line segment */
-//                SDL_RenderPresent(renderer);
-//            }
-//            break;
-//        }
-//    }
-    
-    drawLine(renderer, 10, 10, 100, 100);       /* draw line segment */
+    SDL_Rect dest;
+    dest.x = 0;
+    dest.y = 0;
+    dest.w = m_texture_info.w;
+    dest.h = m_texture_info.h;
+    LOG_DEBUG("w:%d, h:%d  \n", m_texture_info.w, m_texture_info.h);
+    SDL_RenderCopy(renderer, m_img_texture, NULL, &dest);
     SDL_RenderPresent(renderer);
 }
+
+void
+mona_sdl_brush(int x, int y)
+{
+    if (!brush)
+    {
+        if (!load_brush_texture(renderer))
+        {
+            return;
+        }
+    }
+    
+    draw_brush_line(renderer, x, y, BRUSH_SIZE, BRUSH_SIZE);
+}
+
 

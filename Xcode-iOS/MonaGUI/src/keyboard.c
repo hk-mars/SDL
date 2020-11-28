@@ -223,6 +223,10 @@ main(int argc, char *argv[])
     SDL_Event event;
     while (SDL_WaitEvent(&event)) {
         mona_show();
+        break;
+    }
+    
+    while (SDL_WaitEvent(&event)) {
         SDL_Delay(1000);
     }
     
